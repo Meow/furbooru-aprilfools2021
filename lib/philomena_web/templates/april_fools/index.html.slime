@@ -1,0 +1,44 @@
+h1 Database Migration
+
+.block
+  .block__header.warning
+    span.block__header__title
+      ' Migrating database
+      code> derpibooru_prod
+      ' into
+      code furbooru
+      ' .
+  .block__content
+    .walloftext
+      p Migration has been started by the site administrator. The system is currently copying the database data and re-creating indices, this process should be completed within a few hours.
+      p As soon as the database migration is completed, all images will be copied from source to target and any duplicates would be automatically merged. As soon as the migration is complete, source images will become publicly visible on the site. In the meantime all migrated images will be hidden to prevent users from seeing unprocessed posts.
+
+.block
+  .block__header
+    span.block__header__title Migration progress
+  .block__content
+    .progress_bar
+      .progress_bar__progress
+    .block
+      .block__header
+        span.block__header__title Log
+      .block__content
+        .walloftext
+          ul
+            li Migration started by the site administrator
+            li
+              ' Dumping database
+              code derpibooru_prod
+            li Copying database to the target server
+            li
+              ' Importing
+              code> derpibooru_prod
+              ' into
+              code> furbooru
+            li Reindexing...
+
+.block
+  .block__header.danger
+    span.block__header__title Admin tools
+  .block__content
+    = button_to "Cancel migration", Routes.april_fools_path(@conn, :create), method: "post", class: "button button--state-danger", data: [confirm: "Are you sure?"]

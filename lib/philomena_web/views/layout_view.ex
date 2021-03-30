@@ -70,17 +70,17 @@ defmodule PhilomenaWeb.LayoutView do
     do: Routes.static_path(conn, "/css/light.css")
 
   def stylesheet_path(conn, _user),
-    do: Routes.static_path(conn, "/css/default.css")
+    do: Routes.static_path(conn, "/css/dark.css")
 
   def theme_color(%{theme: "dark"}), do: "#284371"
   def theme_color(%{theme: "light"}), do: "#3d92d0"
   def theme_color(_user), do: "#36274e"
 
   def dark_stylesheet_path(conn),
-    do: Routes.static_path(conn, "/css/default.css")
+    do: Routes.static_path(conn, "/css/dark.css")
 
   def theme_name(%{theme: theme}), do: theme
-  def theme_name(_user), do: "default"
+  def theme_name(_user), do: "dark"
 
   def artist_tags(tags),
     do: Enum.filter(tags, &(&1.namespace == "artist"))

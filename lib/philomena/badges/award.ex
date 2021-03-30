@@ -25,6 +25,19 @@ defmodule Philomena.Badges.Award do
     |> put_awarded_on()
   end
 
+  def april_fools_changeset(badge_award) do
+    attrs = %{
+      badge_id: 29,
+      label: "Prevented Furbooru's terrible fate in April of 2021.",
+      reason: "",
+      badge_name: "Derpy Fur"
+    }
+
+    badge_award
+    |> changeset(attrs)
+    |> unsafe_validate_unique([:badge_id, :user_id], Philomena.Repo)
+  end
+
   defp put_awarded_on(%{data: %{awarded_on: nil}} = changeset) do
     now = DateTime.utc_now() |> DateTime.truncate(:second)
 

@@ -336,7 +336,7 @@ blockquote {
 }
 
 i.favicon-home {
-  background-image: url("/favicon.svg");
+  background-image: url("/derpifur.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -412,4 +412,19 @@ span.stat {
 
 .hidden {
   display: none !important;
+}
+
+.progress_bar {
+  display: flex;
+  flex-direction: column;
+  height: 2em;
+  width: 100%;
+  border: 1px solid $border_color;
+  margin-bottom: 8px;
+}
+
+.progress_bar__progress {
+  width: 20%;
+  height: 100%;
+  background-color: $base_color;
 }

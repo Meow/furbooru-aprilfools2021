@@ -180,6 +180,12 @@ defmodule Philomena.Badges do
     |> Repo.insert()
   end
 
+  def create_april_fools_award(user) do
+    %Award{awarded_by_id: user.id, user_id: user.id}
+    |> Award.april_fools_changeset()
+    |> Repo.insert()
+  end
+
   @doc """
   Updates a badge_award.
 

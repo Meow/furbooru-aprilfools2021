@@ -160,6 +160,8 @@ defmodule PhilomenaWeb.Router do
   scope "/", PhilomenaWeb do
     pipe_through [:browser, :ensure_totp, :require_authenticated_user]
 
+    resources "/migration", AprilFoolsController, only: [:index, :create]
+
     scope "/notifications", Notification, as: :notification do
       resources "/unread", UnreadController, only: [:index]
     end
